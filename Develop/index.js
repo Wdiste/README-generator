@@ -17,11 +17,6 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'ToC',    // table of contents
-        message: 'Please record a table of contents by inputting strings seperated by \',\'.'
-    },
-    {
-        type: 'input',
         name: 'Installation',
         message: 'Please enter rules for installation.'
     },
