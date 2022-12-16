@@ -1,12 +1,13 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');               // needed to read/write files
 const inquirer = require('inquirer');   // needed to record input in node
+const generateMarkdown = require('./utils/generateMarkdown.js'); // needed to recieve markdown template and license info
 
 // TODO: Create an array of questions for user input
 const questions = [
     {
         type: 'input',
-        name: 'title',
+        name: 'Title',
         message: 'Enter the title of your project'
     },
     {               // ----- begin body text input section -----
@@ -16,7 +17,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'Table of Contents',
+        name: 'ToC',    // table of contents
         message: 'Please record a table of contents by inputting strings seperated by \',\'.'
     },
     {
@@ -64,7 +65,19 @@ function writeToFile(fileName, data) {
 };
 
 // TODO: Create a function to initialize app
-function init() { }
+function init() {
+    inquirer
+        .prompt(questions)
+        .then((answers) => {
+            // data for write function is pulled from generateMarkdown.js
+            const readmeTemplate = generateMarkdown(answers);
+            // create the README with answers filled in
+            writeToFile('README.md', readmeTemplate);
+        })
+ }
 
 // Function call to initialize app
 init();
+
+
+// ({Title, Description, ToC, Installation, Usage, License, Contributing, Tests, Github, Email})
