@@ -1,9 +1,10 @@
-// TODO: Include packages needed for this application
+// Packages needed for this application
 const fs = require('fs');               // needed to read/write files
 const inquirer = require('inquirer');   // needed to record input in node
-const generateMarkdown = require('./utils/generateMarkdown.js'); // needed to recieve markdown template and license info
+const generateMarkdown = require('./utils/generateMarkdown'); // needed to recieve markdown template and license info
 
-// TODO: Create an array of questions for user input
+
+// array of questions to ask user
 const questions = [
     {
         type: 'input',
@@ -36,11 +37,10 @@ const questions = [
         message: 'Describe how to test the application.'
     },              // -----  end body text input section -----
     {
-        type: 'choice',
+        type: 'list',
         name: 'License',
-        message: 'Select the relevant license.'
-        // choice code to be added here
-        // license will provide info in readme as well as badge in header
+        message: 'Select the relevant license.',
+        choices: ['APACHE', 'BOOST', 'BSD2', 'BSD3', 'GNUGPLv3', 'GNUGPLv2', 'GNUAGPLv2', 'GNULGPLv3', 'MIT', 'CCZU', 'EPL2', 'MPL2', 'UNLICENSE', 'No license'],
     },
     {
         type: 'input',
@@ -54,16 +54,17 @@ const questions = [
     },
 ];
 
-// TODO: Create a function to write README file
+// write README file
 function writeToFile(fileName, data) { 
     fs.writeFile(fileName, data, (err) => err ? console.log(err) : console.log('Success!'));
 };
 
-// TODO: Create a function to initialize app
+// initialize app
 function init() {
     inquirer
         .prompt(questions)
         .then((answers) => {
+            console.log(answers);
             // data for write function is pulled from generateMarkdown.js
             const readmeTemplate = generateMarkdown(answers);
             // create the README with answers filled in
@@ -73,6 +74,3 @@ function init() {
 
 // Function call to initialize app
 init();
-
-
-// ({Title, Description, ToC, Installation, Usage, License, Contributing, Tests, Github, Email})
