@@ -1,10 +1,9 @@
-// Packages needed for this application
-const fs = require('fs');               // needed to read/write files
-const inquirer = require('inquirer');   // needed to record input in node
-const generateMarkdown = require('./utils/generateMarkdown'); // needed to recieve markdown template and license info
+const fs = require('fs');                                           // needed to read/write files
+const inquirer = require('inquirer');                               // needed to record input in node
+const generateMarkdown = require('./utils/generateMarkdown');       // needed to recieve markdown template and license info
 
 
-// array of questions to ask user
+// array of questions for inquirer to prompt user
 const questions = [
     {
         type: 'input',
@@ -65,9 +64,9 @@ function init() {
         .prompt(questions)
         .then((answers) => {
             console.log(answers);
-            // data for write function is pulled from generateMarkdown.js
+            // fill template with answers and save to a variable
             const readmeTemplate = generateMarkdown(answers);
-            // create the README with answers filled in
+            // write a new markdown file with the body being the template literal 
             writeToFile('README.md', readmeTemplate);
         })
  }

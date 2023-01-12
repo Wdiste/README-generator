@@ -41,7 +41,6 @@ function renderLicenseSection(license) {
       break;
     default:
         return ``;
-      // code block
   };
 
   return `## License  

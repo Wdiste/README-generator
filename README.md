@@ -31,11 +31,22 @@
 
   To test this application, simply run the code as instructed and a new file ('README.md') should be created.  Open this file to verify all input has been recorded properly.
 
+  Follow the link for a demo of how to run code:
+
+  <a href="https://drive.google.com/file/d/1Dc9dxzgQbIJb7aG3-QK0kgmM3ED4zMIC/view?usp=sharing">Click here to view video</a>  
+
+  ```
+  Selecting a license from the list in inquirer provides the license section as shown in the demo but selecting the "no license" option will render a readme without 
+  a license section at all:
+  ```
+
+ <img src="Develop\images\no_license.PNG" height="400">
+
   ## Questions/feedback
 
   Please log any issues and check out my projects on Github!  <a href='https://github.com/Wdiste'>Visit Github</a>
 
-  To contact me with any questions, please send me an email at <a href = "mailto:wdiste49@gmail.com?subject = Feedback&body = Message">Send Feedback</a>
+  To contact me with any questions, please send me an email at <a href = "mailto:wdiste49@gmail.com?subject=Feedback&body=Message">Send Feedback</a>
 
   ## License
 
